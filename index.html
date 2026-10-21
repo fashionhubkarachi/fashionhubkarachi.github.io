@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Fashion Hub, Karachi. Women's stitched suits, unstitched fabric and shawls with free delivery.">
+<title>Fashion Hub Karachi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+/* Layout: single column, mobile first. Big serif wordmark hero, three category tiles, order steps, contact card. */
+:root{
+  --bg:#F8F5F9; --surface:#FFFFFF; --ink:#1B1426; --muted:#5E5468;
+  --accent:#B0225F; --accent-ink:#FFFFFF; --tint:#EADDF1; --line:#DCD2E3;
+  --display:'Bodoni Moda','Didot',Georgia,serif; --body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14101B;--surface:#1E1828;--ink:#F3EEF7;--muted:#B5A9C2;--accent:#F06BA2;--accent-ink:#1B1426;--tint:#2B2139;--line:#3A2F4A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14101B;--surface:#1E1828;--ink:#F3EEF7;--muted:#B5A9C2;--accent:#F06BA2;--accent-ink:#1B1426;--tint:#2B2139;--line:#3A2F4A;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+.wrap{max-width:960px;margin:0 auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:18px}
+.brand{font-family:var(--display);font-weight:700;font-size:1.25rem;letter-spacing:.02em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--accent);cursor:pointer;font:inherit;font-weight:700}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.hero{padding-block:40px 48px;display:grid;gap:24px}
+.eyebrow{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(3rem,13vw,6.5rem);line-height:.98;margin:0;text-wrap:balance}
+h1 em{font-style:italic;font-weight:500;color:var(--accent)}
+.lead{font-size:1.15rem;color:var(--muted);max-width:34rem;margin:0}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+section{padding-block:40px;border-top:1px solid var(--line)}
+h2{font-family:var(--display);font-size:clamp(1.8rem,6vw,2.6rem);margin:0 0 20px;line-height:1.1;text-wrap:balance}
+.tiles{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.tile{min-width:0;aspect-ratio:4/5;border-radius:6px;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;background:var(--tint);position:relative;overflow:hidden}
+.tile::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--accent) 10%,transparent) 14px 15px)}
+.tile:nth-child(2){background:var(--accent);color:var(--accent-ink)}
+.tile:nth-child(2)::before{background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(255,255,255,.14) 14px 15px)}
+.tile h3{font-family:var(--display);font-size:1.7rem;margin:0;position:relative}
+.tile p{margin:4px 0 0;position:relative;font-size:.95rem}
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:14px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;min-width:0}
+.steps li::before{content:counter(s);width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:1.2rem}
+.steps strong{display:block}
+.steps span{color:var(--muted)}
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px;display:grid;gap:16px}
+.row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}
+.num{font-family:var(--display);font-size:1.6rem;font-weight:700;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.small{color:var(--muted);font-size:.9rem;margin:0}
+.items{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.item{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.swatch{height:120px;position:relative}
+.swatch span{position:absolute;left:16px;bottom:12px;background:rgba(0,0,0,.55);color:#fff;font-size:.8rem;padding:2px 10px;border-radius:999px}
+.item-body{padding:20px;display:grid;gap:10px;flex:1;align-content:start}
+.item h3{font-family:var(--display);font-size:1.35rem;line-height:1.2;margin:0}
+.item ul{margin:0;padding-left:1.1rem;color:var(--muted);font-size:.95rem}
+.price{font-family:var(--display);font-size:1.8rem;font-weight:700;font-variant-numeric:tabular-nums}
+.free{display:inline-block;background:var(--tint);color:var(--accent);font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
+footer{padding-block:32px 40px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion:no-preference){.btn{transition:transform .15s}.btn:hover{transform:translateY(-2px)}}
+body{margin:0;font-size:16px}
+</style>
+</head><body>
+
+<div class="wrap">
+  <header>
+    <div class="brand">Fashion Hub</div>
+    <a class="btn primary" href="https://wa.me/923410894885" style="min-height:42px;padding:0 16px">WhatsApp us</a>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">Karachi</div>
+    <h1>Women's fashion, <em>delivered</em> free.</h1>
+    <p class="lead">Stitched suits, unstitched fabric and winter shawls for women, with free delivery. Message us to see what is new and to place your order.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://wa.me/923410894885">Order on WhatsApp</a>
+      <a class="btn ghost" href="https://www.facebook.com/share/19heRR9645/">See us on Facebook</a>
+    </div>
+  </div>
+
+  <section id="shop">
+    <h2>What you will find</h2>
+    <div class="tiles">
+      <div class="tile"><h3>Stitched suits</h3><p>Ready to wear, in standard size.</p></div>
+      <div class="tile"><h3>Unstitched</h3><p>Printed and plain fabric, 2 piece sets.</p></div>
+      <div class="tile"><h3>Shawls</h3><p>Pashmina, cashmere and fleece for winter.</p></div>
+    </div>
+  </section>
+
+  <section id="new">
+    <h2>New this week</h2>
+    <div class="items">
+      <article class="item">
+        <div class="swatch" style="background:#1F5A3C"><span>Green</span></div>
+        <div class="item-body">
+          <h3>Women's Stitched Linen Suit</h3>
+          <ul>
+            <li>2 pieces: shirt and trouser, plain linen, round neck</li>
+            <li>Standard size. Shirt 37 in long, chest 20.5 in. Trouser 37 in long, waist 22 in, hip 24 in</li>
+            <li>Measurements can differ by 1 to 3 cm</li>
+          </ul>
+          <div><span class="price">Rs. 1,720</span><span class="free">Free delivery</span></div>
+          <a class="btn primary" href="https://wa.me/923410894885?text=Hi%20Fashion%20Hub%2C%20I%20want%20the%20Green%20Stitched%20Linen%20Suit%20(Rs.%201%2C720).">Order on WhatsApp</a>
+        </div>
+      </article>
+      <article class="item">
+        <div class="swatch" style="background:#8A2B2B"><span>Red</span></div>
+        <div class="item-body">
+          <h3>Women's Unstitched Printed Suit</h3>
+          <ul>
+            <li>2 pieces: shirt and trouser, printed polo cotton</li>
+            <li>Unstitched: 1 metre for the shirt, 1 metre for the trouser</li>
+            <li>Colours can look slightly different in different light</li>
+          </ul>
+          <div><span class="price">Rs. 1,270</span><span class="free">Free delivery</span></div>
+          <a class="btn primary" href="https://wa.me/923410894885?text=Hi%20Fashion%20Hub%2C%20I%20want%20the%20Red%20Unstitched%20Printed%20Suit%20(Rs.%201%2C270).">Order on WhatsApp</a>
+        </div>
+      </article>
+      <article class="item">
+        <div class="swatch" style="background:#7A1F3D"><span>Maroon</span></div>
+        <div class="item-body">
+          <h3>Women's Cashmere Plain Shawl</h3>
+          <ul>
+            <li>Plain, soft and warm winter shawl with fringe edges</li>
+            <li>160 cm long, 80 cm wide</li>
+            <li>Colours can look slightly different in different light</li>
+          </ul>
+          <div><span class="price">Rs. 1,120</span><span class="free">Free delivery</span></div>
+          <a class="btn primary" href="https://wa.me/923410894885?text=Hi%20Fashion%20Hub%2C%20I%20want%20the%20Maroon%20Cashmere%20Plain%20Shawl%20(Rs.%201%2C120).">Order on WhatsApp</a>
+        </div>
+      </article>
+    </div>
+    <p class="small" style="margin-top:14px">Prices checked 21 October 2026. Message us to confirm stock before you order.</p>
+  </section>
+
+  <section id="order">
+    <h2>How to order</h2>
+    <ol class="steps">
+      <li><div><strong>Browse our Facebook page</strong><span>See the latest photos and reels.</span></div></li>
+      <li><div><strong>Message us the item you like</strong><span>Send a screenshot or the name on WhatsApp.</span></div></li>
+      <li><div><strong>Confirm price, size and delivery</strong><span>We reply with the details so you can decide.</span></div></li>
+    </ol>
+  </section>
+
+  <section id="contact">
+    <h2>Visit or contact us</h2>
+    <div class="contact">
+      <div class="row">
+        <div><p class="small">Phone and WhatsApp</p><div class="num" id="phone">+92 341 0894885</div></div>
+        <button class="btn ghost" id="copy" type="button">Copy number</button>
+      </div>
+      <div class="row">
+        <div><p class="small">Email</p><div class="num" id="email" style="font-size:1.2rem">asadsace7@gmail.com</div></div>
+        <button class="btn ghost" id="copy2" type="button">Copy email</button>
+      </div>
+      <div><p class="small">Address</p><div>Karachi, Pakistan</div></div>
+      <div class="cta">
+        <a class="btn primary" href="https://wa.me/923410894885">Chat on WhatsApp</a>
+        <a class="btn ghost" href="https://www.facebook.com/share/19heRR9645/">Facebook page</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© Fashion Hub, Karachi</footer>
+</div>
+
+<script>
+document.getElementById('copy2').addEventListener('click',function(){
+  var b=this,t=document.getElementById('email').textContent;
+  function ok(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy email'},1800)}
+  try{navigator.clipboard.writeText(t).then(ok,function(){})}catch(e){}
+});
+document.getElementById('copy').addEventListener('click',function(){
+  var b=this,t=document.getElementById('phone').textContent;
+  function ok(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy number'},1800)}
+  try{navigator.clipboard.writeText(t).then(ok,function(){sel()})}catch(e){sel()}
+  function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('phone'));var s=getSelection();s.removeAllRanges();s.addRange(r)}
+});
+</script>
+
+</body></html>
